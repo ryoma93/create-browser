@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+TEMPLATE="/workspace/memo/MEMO_TEMPLATE.md"
+DEST_DIR="/workspace/memo"
+
+usage() {
+  echo "Usage: memo-new [YYYYMMDD]"
+}
+
+DATE="${1:-}"
+if [[ -z "${DATE}" ]]; then
+  DATE="$(date +%Y%m%d)"
+fi
+
+if ! [[ "${DATE}" =~ ^[0-9]{8}$ ]]; then
+  echo "エラー: 日付はYYYYMMDD形式で指定してください: ${DATE}" >&2
+  usage
+  exit 1
+fi
+
+if [[ ! -f "${TEMPLATE}" ]]; then
+  echo "エラー: テンプレートが見つかりません: ${TEMPLATE}" >&2
+  exit 1
+fi
+
+mkdir -p "${DEST_DIR}"
+
+DEST="${DEST_DIR}/${DATE}.md"
+
+if [[ -e "${DEST}" ]]; then
+  echo "エラー: 既に存在します: ${DEST}" >&2
+  exit 1
+fi
+
+cp "${TEMPLATE}" "${DEST}"
+echo "作成しました: ${DEST}"
+
+
