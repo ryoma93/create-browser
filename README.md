@@ -1,7 +1,7 @@
 # create-browser
 作って学ぶブラウザの仕組み学習用
 
-## appendix
+## サポートページ
 https://lowlayergirls.github.io/wasabi-help/browser/
 
 ## メモ生成コマンド
