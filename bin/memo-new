@@ -10,7 +10,7 @@ usage() {
 
 DATE="${1:-}"
 if [[ -z "${DATE}" ]]; then
-  DATE="$(date +%Y%m%d)"
+  DATE="$(TZ=Asia/Tokyo date +%Y%m%d)"
 fi
 
 if ! [[ "${DATE}" =~ ^[0-9]{8}$ ]]; then
