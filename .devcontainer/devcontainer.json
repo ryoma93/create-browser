@@ -19,13 +19,10 @@
   },
   "remoteUser": "root",
   "workspaceFolder": "/workspace",
-  "containerEnv": {
-    "PATH": "/workspace/bin:${PATH}"
-  },
   "mounts": [
     "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached"
   ],
-  "postCreateCommand": "rustup component add clippy rustfmt && cargo --version && rustc --version && mkdir -p /workspace/bin && chmod -R a+rx /workspace/bin"
+  "postCreateCommand": "rustup component add clippy rustfmt && cargo --version && rustc --version"
 }
 
 
