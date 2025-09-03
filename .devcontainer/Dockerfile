@@ -10,6 +10,7 @@ RUN apt-get update && \
         lldb \
         cmake \
         libssl-dev \
+        qemu-system \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /workspace
